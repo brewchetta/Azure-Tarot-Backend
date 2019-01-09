@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :card_unlocks
       resources :spreads
       resources :users
+      get '/usernames/:username', to: 'users#show_by_name'
       resources :cards
     end
   end
