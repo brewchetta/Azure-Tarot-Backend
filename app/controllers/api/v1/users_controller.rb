@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.valid?
       render json: {user: @user, status: :accepted}
     else
-      render json: {errors: @user.errors.full_messages[0] ,status: :not_acceptable}
+      render json: {errors: @user.errors.full_messages[0], status: :not_acceptable}
     end
   end
 
