@@ -1,4 +1,4 @@
-class CardsController < ApplicationController
+class Api::V1::CardsController < ApplicationController
   before_action :get_card, only: [:show, :update, :destroy]
 
   def index
@@ -44,7 +44,7 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:card_name, :card_suit, :description, :rev_description, :keywords, :rev_keywords, :major_arcana)
+    params.require(:card).permit(:card_name, :card_suit, :description, :rev_description, {keywords:[]}, {rev_keywords:[]}, :major_arcana)
   end
 
 end
