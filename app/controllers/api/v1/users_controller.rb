@@ -22,7 +22,7 @@ class Api::V1::UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.valid?
-      render json: {user: @user, status: :accepted}
+      render json: {user: @user, status: :created}
     else
       render json: {errors: @user.errors.full_messages[0], status: :not_acceptable}
     end

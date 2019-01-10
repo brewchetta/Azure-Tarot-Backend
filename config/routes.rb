@@ -5,8 +5,11 @@ Rails.application.routes.draw do
       resources :card_unlocks
       resources :spreads
       resources :users
-      get '/usernames/:username', to: 'users#show_by_name'
       resources :cards
+      # For authorized actions
+      post '/login', to: 'auth#create'
+      # To find a user by their username
+      get '/usernames/:username', to: 'users#show_by_name'
     end
   end
 end
