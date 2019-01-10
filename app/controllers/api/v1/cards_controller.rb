@@ -1,5 +1,6 @@
 class Api::V1::CardsController < ApplicationController
   before_action :get_card, only: [:show, :update, :destroy]
+  skip_before_action :authorized
 
   def index
     @cards = Card.all
