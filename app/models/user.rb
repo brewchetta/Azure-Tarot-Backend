@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: { case_sensitive: false }
   validates :username, presence: true
   validates :username, length: { in: 6..20 }
-  validates :password_digest, length: { in: 6..20 }
+  validates :password, length: { in: 6..20 }
 
 # Associations
 
