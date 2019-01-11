@@ -45,7 +45,7 @@ class Api::V1::CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:card_name, :card_suit, :description, :rev_description, {keywords:[]}, {rev_keywords:[]}, :major_arcana)
+    params.require(:card).permit(:card_name, :card_rank, :card_suit, :description, :rev_description, {keywords:[]}, {rev_keywords:[]}, :major_arcana)
   end
 
 end

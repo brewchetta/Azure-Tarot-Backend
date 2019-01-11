@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 2019_01_09_200131) do
 
   create_table "card_unlocks", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "card_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "cards", force: :cascade do |t|
     t.string "card_name"
+    t.integer "card_rank"
     t.string "card_suit"
     t.string "description"
     t.string "rev_description"

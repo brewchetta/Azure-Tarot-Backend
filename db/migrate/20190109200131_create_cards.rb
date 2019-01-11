@@ -6,7 +6,8 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.string :card_suit
       t.string :description
       t.string :rev_description
-      # Array allowed for keywords thanks to serialize in model
+
+      # Keywords can be in an array thanks to serialize in model
       t.string :keywords
       t.string :rev_keywords
       t.boolean :major_arcana, default: true
