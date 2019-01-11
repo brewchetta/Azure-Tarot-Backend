@@ -11,15 +11,6 @@ class Api::V1::UsersController < ApplicationController
     render json: {user: @user, status: :ok}
   end
 
-  def show_by_name
-    @user = User.all.find_by(username: params[:username])
-    if @user
-      render json: {user: @user, status: :ok}
-    else
-      render json: { errors: 'That user does not exist', status: :not_acceptable}
-    end
-  end
-
   def create
     @user = User.create(user_params)
     if @user.valid?

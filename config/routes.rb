@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       # For authorized actions
       post '/login', to: 'auth#create'
       # To find a user by their username
-      get '/usernames/:username', to: 'users#show_by_name'
+      get '/profile', to: 'auth#show_by_name'
     end
   end
 end
