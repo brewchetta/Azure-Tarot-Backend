@@ -26,7 +26,7 @@ class Api::V1::SpreadsController < ApplicationController
   end
 
   def spread_params
-    params.require(:spread).permit(:type, :user_id, :card_ids)
+    params.require(:spread).permit(:spread_type, :user_id, {card_ids:[]})
   end
 
 end
