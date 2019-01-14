@@ -10,6 +10,14 @@ class Api::V1::PositionsController < ApplicationController
     render json: {position: @position, status: :ok}
   end
 
+  def create
+    @position = Position.create(position_params)
+    if @position.valid?
+      render json: {position: @position, status: :created}
+    else
+      render json: { errors: @position.errors.full_messages[0], status: :not_acceptable }
+    end
+  end
 
 
   private
