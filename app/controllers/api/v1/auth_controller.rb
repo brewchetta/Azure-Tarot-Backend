@@ -6,7 +6,11 @@ class Api::V1::AuthController < ApplicationController
   end
 
   def create
-    if @user && @user.authenticate(user_login_params[:password])
+    @user = User.find_by(username: params[:user][:username])
+    puts 'User is:'
+    puts @user
+    puts '---------'
+    if @user && @user.authenticate(params[:user][:password])
       @token = encode_token( user_id: @user.id )
       render json: { user: @user, jwt: @token }, status: :accepted
     else
