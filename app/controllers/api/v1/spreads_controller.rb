@@ -6,14 +6,15 @@ class Api::V1::SpreadsController < ApplicationController
     render json: { spreads: @spreads, status: :ok}
   end
 
+  def show_by_user
+    @spreads = Spread.select {|spread| spread.user_id === current_user.id}
+    render json: { spreads: @spreads, status: :ok }
+  end
+
   def show
     render json: {spread: @spread, status: :ok}
   end
 
-  def show_by_user
-    @spreads = Spread.select {|spread| spread.user_id === params[:user_id]}
-    render json: { spreads: @spreads, status: :ok }
-  end
 
   def create
     @spread = Spread.create(spread_params)

@@ -8,14 +8,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    render json: {user: @user, status: :ok}
+    render json: {user: UserSerializer.new(@user), status: :ok}
   end
 
   def create
     @user = User.create(user_params)
     if @user.valid?
       @token = encode_token(user_id: @user.id)
-      render json: {user: @user, jwt: @token, status: :created}
+      render json: {user: UserSerializer.new(@user), jwt: @token, status: :created}
     else
       render json: {errors: @user.errors.full_messages[0], status: :not_acceptable}
     end

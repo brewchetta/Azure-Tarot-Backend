@@ -2,7 +2,7 @@ class Api::V1::AuthController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
   def show_by_name
-    render json: { user: current_user }, status: :accepted
+    render json: { user: UserSerializer.new(current_user) }, status: :accepted
   end
 
   def create
@@ -12,7 +12,7 @@ class Api::V1::AuthController < ApplicationController
     puts '---------'
     if @user && @user.authenticate(params[:user][:password])
       @token = encode_token( user_id: @user.id )
-      render json: { user: @user, jwt: @token }, status: :accepted
+      render json: { user: UserSerializer.new(@user), jwt: @token }, status: :accepted
     else
       render json: { message: 'Invalid login' }, status: :unauthorized
     end

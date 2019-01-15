@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :positions
       resources :card_unlocks
+      get '/spreads/get-by-user', to: 'spreads#show_by_user'
       resources :spreads
       resources :users
       resources :cards

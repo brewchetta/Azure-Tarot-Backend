@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
 # Associations
 
-  has_many :cards_unlocks
+  has_many :card_unlocks
   has_many :cards, through: :card_unlocks
   has_many :spreads
 
