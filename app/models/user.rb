@@ -10,8 +10,8 @@ class User < ApplicationRecord
 
 # Associations
 
-  has_many :card_unlocks
+  has_many :card_unlocks, dependent: :destroy
   has_many :cards, through: :card_unlocks
-  has_many :spreads
+  has_many :spreads, dependent: :destroy
 
 end
