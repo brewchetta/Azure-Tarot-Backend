@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :spreads
       resources :users
       resources :cards
+      resources :notes
       # For authorized actions
       post '/login', to: 'auth#create'
       # To find a user by their username

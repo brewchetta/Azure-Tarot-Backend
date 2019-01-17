@@ -28,3 +28,6 @@
 
 # Ignore secret token for decrypting with JWT
 /app/controllers/token_secret.rb
+
+# Ignore application configuration
+/config/application.yml

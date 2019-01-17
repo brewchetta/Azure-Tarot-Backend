@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_223315) do
+ActiveRecord::Schema.define(version: 2019_01_17_201250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 2019_01_14_223315) do
     t.string "keywords"
     t.string "rev_keywords"
     t.boolean "major_arcana", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "content"
+    t.integer "spread_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
