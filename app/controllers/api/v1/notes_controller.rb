@@ -3,7 +3,8 @@ class Api::V1::NotesController < ApplicationController
   def create
     @note = Note.create(note_params)
     if @note.valid?
-      render json: { note: @note, status: :created }
+      @spread = Spread.all.find_by(id: [@note.spread_id])
+      render json: { spread: SpreadSerializer.new(@spread), status: :created }
     else
       render json: { errors: @note.errors.full_messages[0], status: :not_acceptable }
     end
