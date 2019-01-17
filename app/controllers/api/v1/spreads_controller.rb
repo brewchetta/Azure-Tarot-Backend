@@ -8,18 +8,21 @@ class Api::V1::SpreadsController < ApplicationController
 
   def show_by_user
     @spreads = Spread.select {|spread| spread.user_id === current_user.id}
+
+    @spreads = @spreads.map{ |spread| SpreadSerializer.new(spread) }
+
     render json: { spreads: @spreads, status: :ok }
   end
 
   def show
-    render json: {spread: @spread, status: :ok}
+    render json: {spread: SpreadSerializer.new(@spread), status: :ok}
   end
 
 
   def create
     @spread = Spread.create(spread_params)
     if @spread.valid?
-      render json: { spread: @spread, status: :created }
+      render json: { spread: SpreadSerializer.new(@spread), status: :created }
     else
       render json: { errors: @spread.errors.full_messages[0], status: :not_acceptable }
     end
