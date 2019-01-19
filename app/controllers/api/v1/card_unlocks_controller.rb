@@ -26,7 +26,7 @@ class Api::V1::CardUnlocksController < ApplicationController
   end
 
   def card_unlock_params
-    params.require(:card_unlock).permit(:user_id, :card_id)
+    params.require(:card_unlock).permit(:user_id, :card_id, :user_description)
   end
 
 end
