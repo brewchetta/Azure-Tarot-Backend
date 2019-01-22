@@ -19,6 +19,15 @@ class Api::V1::CardUnlocksController < ApplicationController
     end
   end
 
+  def update
+    @card_unlock.update(card_unlock_params)
+    if @card_unlock.valid?
+      render json: { card_unlock: @card_unlock, status: :ok }
+    else
+      render json: { errors: @card_unlock.errors.full_messages[0], status: :not_acceptable }
+    end
+  end
+
   private
 
   def get_card_unlock
