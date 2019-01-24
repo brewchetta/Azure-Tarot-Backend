@@ -22,11 +22,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    @user.update
+    @user.update(user_params)
     if @user.valid?
       render json: {user: @user, status: :accepted}
     else
-      render json: {status: :not_acceptable}
+      render json: {errors: @user.errors.full_messages[0], status: :not_acceptable}
     end
   end
 
@@ -46,7 +46,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :profile)
   end
 
 end

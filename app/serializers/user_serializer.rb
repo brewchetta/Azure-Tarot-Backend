@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :created_at
+  attributes :id, :username, :created_at, :profile
 
   has_many :cards
   has_many :card_unlocks
