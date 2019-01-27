@@ -1,5 +1,5 @@
 # Azure Tarot Backend
 
-This is the repository for the Azure Tarot app. Find more information about the project here:
+Repository for the Azure Tarot server side code. Find out more about the app here:
 
 https://github.com/brewchetta/Azure-Tarot
