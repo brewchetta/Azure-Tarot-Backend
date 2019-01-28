@@ -1,24 +1,5 @@
-# README
+# Azure Tarot Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Repository for the Azure Tarot server side code. Find out more about the app here:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://github.com/brewchetta/Azure-Tarot
