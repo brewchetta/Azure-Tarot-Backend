@@ -1,16 +1,12 @@
 # For secret token
-require 'token_secret'
 
 class ApplicationController < ActionController::API
   before_action :authorized
 
-  # Defined in token_secret file
-  include TokenSecret
-
 # Validations with JWT
 
   def encode_token(payload)
-    JWT.encode(payload, secret_token)
+    JWT.encode(payload, ENV["JWT_SECRET"])
   end
 
   def auth_header
@@ -21,7 +17,7 @@ class ApplicationController < ActionController::API
     if auth_header
       token = auth_header.split(' ')[1]
       begin
-        JWT.decode(token, secret_token, true)
+        JWT.decode(token, ENV["JWT_SECRET"], true)
       rescue JWT::DecodeError
         nil
       end
