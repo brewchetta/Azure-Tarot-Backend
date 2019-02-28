@@ -31,3 +31,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore database since it's user specific
+/config/database.yml
+
+# Ignore Gemfile since it's particular across computers
+/Gemfile
