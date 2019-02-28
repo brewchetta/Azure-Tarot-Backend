@@ -6,12 +6,10 @@ class User < ApplicationRecord
   validates :username, uniqueness: { case_sensitive: false }
   validates :username, presence: true
   validates :username, length: { in: 6..20 }
-  validates :password, length: { in: 6..20 }
 
 # Associations
 
   has_many :card_unlocks, dependent: :destroy
-  has_many :cards, through: :card_unlocks
   has_many :spreads, dependent: :destroy
 
 end

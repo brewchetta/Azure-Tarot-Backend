@@ -23,29 +23,9 @@ ActiveRecord::Schema.define(version: 2019_01_24_140500) do
     t.string "user_description"
   end
 
-  create_table "cards", force: :cascade do |t|
-    t.string "card_name"
-    t.integer "card_rank"
-    t.string "card_suit"
-    t.string "description"
-    t.string "rev_description"
-    t.string "keywords"
-    t.string "rev_keywords"
-    t.boolean "major_arcana", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "notes", force: :cascade do |t|
     t.string "content"
     t.integer "spread_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "positions", force: :cascade do |t|
-    t.integer "spread_id"
-    t.string "position_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
